@@ -1,0 +1,64 @@
+.slider {
+  width: 60%;
+  margin: 0 auto;
+  @include breakpoint-down(large) {
+    width: 80%;
+  }
+  @include breakpoint-down(medium) {
+    width: 100%;
+  }
+  &__item {
+    margin-right: 50px !important;
+    margin-left: 50px !important;
+    margin-top: 30px !important;
+    margin-bottom: 40px !important;
+    align-content: center;
+    justify-content: center;
+    padding: 5px;
+    box-sizing: unset;
+    display: grid;
+    gap: 5px;
+    grid-template-columns: 1fr 1.5fr;
+    grid-template-rows: min-content min-content min-content;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 9px 20px rgba(#000, 0.5);
+    @include breakpoint-down(large) {
+      margin-top: 20px !important;
+      margin-bottom: 35px !important;
+    }
+    @include breakpoint-down(medium) {
+      margin-right: 45px !important;
+      margin-left: 45px !important;
+      margin-top: 20px !important;
+      margin-bottom: 30px !important;
+      gap: 3px;
+      padding: 3px;
+    }
+    &__image {
+      // height: 100%;
+      object-fit: fill;
+      background-position: center;
+      background-size: cover;
+      grid-row: 1/-1;
+    }
+    .heding-lg {
+    }
+    .btn-secondary {
+      justify-self: end;
+    }
+    p {
+      display: -webkit-box;
+      font-size: 15px;
+      overflow:hidden;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      @include breakpoint-down(large) {
+        font-size: 1.5rem;
+      }
+      @include breakpoint-down(medium) {
+        font-size: 11px;
+      }
+    }
+  }
+}

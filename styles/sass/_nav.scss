@@ -1,0 +1,47 @@
+.nav {
+  position: sticky;
+  top: 0;
+  background-color: #8f73ff;
+  width: 100%;
+  padding: 0.8rem;
+  box-shadow: 0 8px 18px rgba(#000, 0.25);
+  transition: all 0.4s ease-in;
+  z-index: 1000;
+  &__items {
+    width: 80%;
+    margin: 0 auto;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    transition: all 0.4s ease-in;
+    @include breakpoint-down(large) {
+      width: 100%;
+    }
+    @include breakpoint-down(medium) {
+      width: 70%;
+      margin: 0;
+    }
+  }
+  &__item {
+    display: inline-block;
+    @include breakpoint-down(medium) {
+      display: none;
+      &:nth-of-type(1) {
+        display: inline-block;
+      }
+      &:nth-of-type(2) {
+        display: inline-block;
+      }
+    }
+  }
+  &.open {
+    & .nav__items {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    & .nav__item {
+      display: inline-block;
+    }
+  }
+}

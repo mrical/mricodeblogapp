@@ -1,0 +1,61 @@
+.header {
+  margin: 0 auto;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  padding: 0.8rem;
+  justify-content: space-between;
+  @include breakpoint-down(medium) {
+    padding: 0.5rem;
+    width: 100%;
+  }
+  &__logo {
+    max-width: 162px;
+    width: 30%;
+  }
+  &__nav {
+    align-self: flex-end;
+  }
+  &__items {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__item {
+    display: inline-block;
+    margin: 0 2rem;
+    @include breakpoint-down(large) {
+      margin: 0 1rem;
+    }
+    @include breakpoint-down(medium) {
+      margin: 0 0.5rem;
+    }
+  }
+  &__link {
+    &:link,
+    &:visited {
+      color: #000;
+      font-size: 2.3rem;
+      font-weight: 300;
+      text-transform: uppercase;
+      border-bottom: 3px solid transparent;
+      transition: all 0.5s ease-in;
+      @include breakpoint-down(large) {
+        font-size: 2rem;
+      }
+      @include breakpoint-down(medium) {
+        font-size: 1.4rem;
+      }
+    }
+    &::after {
+      display: block;
+      content: "";
+      border-bottom: solid 3px #8f73ff;
+      transform: scaleX(0);
+      transition: transform 250ms ease-in-out;
+    }
+    &:hover::after {
+      transform: scaleX(1);
+    }
+  }
+}
