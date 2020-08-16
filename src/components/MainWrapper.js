@@ -42,21 +42,21 @@ export default function MainWrapper({ children }) {
           <div className="follow__icons">
             <a href="https://www.instagram.com/mrical_singhal/" target="_blank">
               <img
-                src="/images/twitter-icon.svg"
+                src="https://res.cloudinary.com/dkis5gxl8/image/upload/v1597546336/twitter-icon_amozb3.svg"
                 alt="twitter-icon"
                 className="icon"
               />
             </a>
             <a href="https://www.instagram.com/mrical_singhal/" target="_blank">
               <img
-                src="/images/facebook-icon.svg"
+                src="https://res.cloudinary.com/dkis5gxl8/image/upload/v1597546336/facebook-icon_cm2o7b.svg"
                 alt="facebook-icon"
                 className="icon"
               />
             </a>
             <a href="https://www.instagram.com/mrical_singhal/" target="_blank">
               <img
-                src="/images/youtube-icon.svg"
+                src="https://res.cloudinary.com/dkis5gxl8/image/upload/v1597546337/youtube-icon_nguvei.svg"
                 alt="youtube-icon"
                 className="icon"
               />
