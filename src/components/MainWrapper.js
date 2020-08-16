@@ -40,21 +40,21 @@ export default function MainWrapper({ children }) {
             <h2 className="heading-secondary">Follow us on</h2>
           </div>
           <div className="follow__icons">
-            <a href="">
+            <a href="https://www.instagram.com/mrical_singhal/" target="_blank">
               <img
                 src="/images/twitter-icon.svg"
                 alt="twitter-icon"
                 className="icon"
               />
             </a>
-            <a href="#">
+            <a href="https://www.instagram.com/mrical_singhal/" target="_blank">
               <img
                 src="/images/facebook-icon.svg"
                 alt="facebook-icon"
                 className="icon"
               />
             </a>
-            <a href="#">
+            <a href="https://www.instagram.com/mrical_singhal/" target="_blank">
               <img
                 src="/images/youtube-icon.svg"
                 alt="youtube-icon"

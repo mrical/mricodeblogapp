@@ -82,8 +82,12 @@
       @include breakpoint-down(medium) {
         width: 100%;
       }
-      img {
+      a {
+        display: inline-block;
         width: 20%;
+      }
+      img {
+        width: 100%;
         cursor: pointer;
         transition: all 0.5s ease-out;
         &:hover {

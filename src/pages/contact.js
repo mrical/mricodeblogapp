@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import MainWrapper from "../components/MainWrapper";
 import Axios from "axios";
+import Head from "next/head";
 
 export default function contact() {
   const [form, setForm] = useState({ email: "", fullName: "", message: "" });
@@ -22,10 +23,16 @@ export default function contact() {
   };
   return (
     <MainWrapper>
+      <Head>
+        <title>MriCode | Contact Us</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <div className="contactUs">
         <div className="contactUs__head">
           <h1 className="contactUs__heading">Connect with us on</h1>
-          <a href="#">@mricoder</a>
+          <a href="https://www.instagram.com/mrical_singhal/" target="_blank">
+            @mrical_singhal
+          </a>
         </div>
         <div className="contactUs__form">
           <h1 className="contactUs__heading">Contact form</h1>

@@ -43,5 +43,20 @@
   &__copyright {
     grid-row: 2/-1;
     grid-column: 1/-1;
+    line-height: 1.5;
+    a {
+      color: #fff;
+      transition: all 0.5s ease-in-out;
+    }
+    &::after {
+      display: block;
+      content: "";
+      border-bottom: solid 2px #000;
+      transform: scaleX(0);
+      transition: transform 250ms ease-in-out;
+    }
+    &:hover::after {
+      transform: scaleX(1);
+    }
   }
 }

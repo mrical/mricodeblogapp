@@ -8,7 +8,7 @@ export default function Home({ posts, page, count }) {
   return (
     <>
       <Head>
-        <title>Create Next App</title>
+        <title>MriCode | Home</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Slider />
@@ -18,7 +18,9 @@ export default function Home({ posts, page, count }) {
     </>
   );
 }
-export async function getServerSideProps({ query: { page = 1 } }) {
+
+export async function getServerSideProps({ query }) {
+  const page = query?.page || 1;
   const res = await Axios.get(
     `${process.env.NEXT_PUBLIC_API_URL}/blogs?_sort=updatedAt:DESC&_start=${
       (page - 1) * 10

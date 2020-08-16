@@ -23,7 +23,7 @@ export default function SidePosts({ type }) {
               <div
                 className="SidePosts__post__thumbnail"
                 style={{
-                  backgroundImage: `linear-gradient(to bottom,transparent,rgba(0,0,0,.7)), url(${process.env.NEXT_PUBLIC_API_URL}${post.thumbnail.url})`,
+                  backgroundImage: `linear-gradient(to bottom,transparent,rgba(0,0,0,.7)), url(${post.thumbnail.url})`,
                 }}
               >
                 <div className="SidePosts__post__title">{post.title}</div>

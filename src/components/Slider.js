@@ -31,7 +31,7 @@ function Slider() {
             <div
               className="slider__item__image"
               style={{
-                backgroundImage: `url(${process.env.NEXT_PUBLIC_API_URL}${thumbnail.url})`,
+                backgroundImage: `url(${thumbnail.url})`,
               }}
             ></div>
             <h1 className="heading-lg">{title}</h1>

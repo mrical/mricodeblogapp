@@ -7,7 +7,7 @@ export default function Post({ thumbnail, title, description, id }) {
       <div
         className="post__image"
         style={{
-          backgroundImage: `url(${process.env.NEXT_PUBLIC_API_URL}${thumbnail.url})`,
+          backgroundImage: `url(${thumbnail.url})`,
         }}
       ></div>
       <div className="post__text">
@@ -18,7 +18,11 @@ export default function Post({ thumbnail, title, description, id }) {
         </Link>
         <p className="paragraph-lg">{description}</p>
         <div className="post__buttons">
-          <a href="#" className="creator">
+          <a
+            href="https://www.instagram.com/mrical_singhal/"
+            target="_blank"
+            className="creator"
+          >
             By Mrical
           </a>
           <Link href="/blog/[id]" as={`/blog/${id}`}>

@@ -1,7 +1,7 @@
 import Axios from "axios";
 import MainWrapper from "../../components/MainWrapper";
 import Link from "next/link";
-
+import { useRouter } from "next/router";
 export default function Blog({
   thumbnail,
   body,
@@ -10,16 +10,20 @@ export default function Blog({
   lastId,
   nextId,
 }) {
-  const bodyNew = body
-    .split('src="/uploads')
-    .join(`src="${process.env.NEXT_PUBLIC_API_URL}/uploads`);
+  const router = useRouter();
+  if (router.isFallback) {
+    return "Loading...";
+  }
+  // const bodyNew = body
+  //   .split('src="/uploads')
+  //   .join(`src="${process.env.NEXT_PUBLIC_API_URL}/uploads`);
   return (
     <MainWrapper>
       <section className="blog">
         <div
           className="blog__thumbnail"
           style={{
-            backgroundImage: `url(${process.env.NEXT_PUBLIC_API_URL}${thumbnail.url})`,
+            backgroundImage: `url(${thumbnail.url})`,
           }}
         ></div>
         <div className="blog__content">
@@ -27,16 +31,36 @@ export default function Blog({
           <p className="blog__description">{description}</p>
           <div
             className="blog__body ck-content"
-            dangerouslySetInnerHTML={{ __html: bodyNew }}
+            dangerouslySetInnerHTML={{ __html: body }}
           ></div>
         </div>
         <div className="blog__share">
           <h2 className="heading-secondary">Share On</h2>
           <div className="blog__share__images">
-            <img src="/images/icons/facebook-share.png" alt="facebook" />
-            <img src="/images/icons/messenger-share.png" alt="messenger" />
-            <img src="/images/icons/twitter-share.png" alt="twitter" />
-            <img src="/images/icons/whatsapp-share.png" alt="whatsapp" />
+            <a href="https://www.instagram.com/mrical_singhal/" target="_blank">
+              <img
+                src="https://res.cloudinary.com/dkis5gxl8/image/upload/v1597541871/facebook_share_tljwvq.png"
+                alt="facebook"
+              />
+            </a>
+            <a href="https://www.instagram.com/mrical_singhal/" target="_blank">
+              <img
+                src="https://res.cloudinary.com/dkis5gxl8/image/upload/v1597541871/messenger_share_ripheq.png"
+                alt="messenger"
+              />
+            </a>
+            <a href="https://www.instagram.com/mrical_singhal/" target="_blank">
+              <img
+                src="https://res.cloudinary.com/dkis5gxl8/image/upload/v1597541871/twitter_share_an0ar5.png"
+                alt="twitter"
+              />
+            </a>
+            <a href="https://www.instagram.com/mrical_singhal/" target="_blank">
+              <img
+                src="https://res.cloudinary.com/dkis5gxl8/image/upload/v1597541871/whatsapp_share_gj0tbp.png"
+                alt="whatsapp"
+              />
+            </a>
           </div>
         </div>
         <div className="blog__pagination">
@@ -44,7 +68,10 @@ export default function Blog({
             <div className="blog__pagination__last">
               <Link href="/blog/[id]" as={`/blog/${lastId}`}>
                 <a>
-                  <img src="/images/Vector-left.png" alt="left" />
+                  <img
+                    src="https://res.cloudinary.com/dkis5gxl8/image/upload/v1597546336/Vector-left_lkaemv.png"
+                    alt="left"
+                  />
                   <span>last blog</span>
                 </a>
               </Link>
@@ -56,7 +83,10 @@ export default function Blog({
                 <a>
                   <span>next blog</span>
 
-                  <img src="/images/Vector-right.png" alt="right" />
+                  <img
+                    src="https://res.cloudinary.com/dkis5gxl8/image/upload/v1597546336/Vector-right_xk6usp.png"
+                    alt="right"
+                  />
                 </a>
               </Link>
             </div>
@@ -66,10 +96,16 @@ export default function Blog({
     </MainWrapper>
   );
 }
-export const getServerSideProps = async ({ query }) => {
-  const res = await Axios.get(
-    `${process.env.NEXT_PUBLIC_API_URL}/blogs/${query.id}`
+export async function getStaticPaths() {
+  const { data: blogs } = await Axios.get(
+    `${process.env.NEXT_PUBLIC_API_URL}/blogs?_limit=15`
   );
+  const paths = blogs.map((blog) => `/blog/${blog.id}`);
+  return { paths, fallback: true };
+}
+export const getStaticProps = async ({ query, params }) => {
+  const { id } = query || params;
+  const res = await Axios.get(`${process.env.NEXT_PUBLIC_API_URL}/blogs/${id}`);
   const {
     data: [{ id: nextId } = { id: null }],
   } = await Axios.get(

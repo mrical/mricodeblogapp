@@ -4,7 +4,7 @@ function Header() {
   return (
     <header className="header">
       <img
-        src="/images/MriCode-logo-big.svg"
+        src="https://res.cloudinary.com/dkis5gxl8/image/upload/v1597546336/MriCode-logo-big_zhh4h2.svg"
         alt="logo"
         className="header__logo"
       />

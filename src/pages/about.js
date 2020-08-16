@@ -1,9 +1,14 @@
 import React from "react";
 import MainWrapper from "../components/MainWrapper";
+import Head from "next/head";
 
 export default function About() {
   return (
     <MainWrapper>
+      <Head>
+        <title>MriCode | About</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <div className="about">
         <h2 className="about__heading">About Us</h2>
         <p>

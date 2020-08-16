@@ -49,7 +49,12 @@ export default function Footer() {
           </li>
         </ul>
       </div>
-      <div className="footer__copyright">Made with &#128151; by MriCode</div>
+      <div className="footer__copyright">
+        Made with &#128151; by{" "}
+        <a href="https://www.instagram.com/mrical_singhal/" target="_blank">
+          MriCode
+        </a>{" "}
+      </div>
     </footer>
   );
 }
