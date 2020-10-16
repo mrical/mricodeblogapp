@@ -53,7 +53,7 @@ export default function Footer() {
         Made with &#128151; by{" "}
         <a href="https://www.instagram.com/mrical_singhal/" target="_blank">
           MriCode
-        </a>{" "}
+        </a>
       </div>
     </footer>
   );
